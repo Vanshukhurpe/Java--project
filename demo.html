@@ -1,0 +1,47 @@
+<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Registration Add</title>
+  </head>
+  <body>
+
+    <jsp:include page="homeAlumni.jsp"></jsp:include>
+    <div>
+        <div class="container">
+         <div class="jumbotron">
+      <h1>New Registration</h1>
+      <form name="frm" action="saveregister" method="POST">
+        <div class="form-group">
+          <label for="alumniName">Select Alumni Name:</label>
+          <select name="alumniId" id="alumniName">
+            <c:forEach var="alumni" items="${alumniList}">
+              <option value="${alumni.id}">${alumni.name}</option>
+            </c:forEach>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <!-- Event Name Dropdown -->
+          <label for="eventName">Select Event Name:</label>
+          <select name="eventId" id="eventName">
+            <c:forEach var="event" items="${eventList}">
+              <option value="${event.id}">${event.name}</option>
+            </c:forEach>
+          </select>
+        </div>
+    
+        <div class="form-group">
+           <!-- <input type="submit" class="form-control btn btn-primary" id="s" name="s" > -->
+          <input class="btn btn-primary" type="submit" value="Submit" />
+        <!-- </div> -->
+      </form>
+    </div>
+    </div>
+  </body>
+</html>
